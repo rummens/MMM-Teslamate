@@ -303,7 +303,21 @@ Module.register("MMM-Teslamate", {
     odometerLi.appendChild(makeSpan("name", "Odometer"));
     odometerLi.appendChild(makeSpan("value", odometer + (!this.config.imperial ? " Km" : " Mi")));
 
+    var rangeLi = document.createElement("li");
+    rangeLi.className = "mattribute";
+    rangeLi.appendChild(makeSpan("icon zmdi zmdi-battery zmdi-hc-fw", ""));
+    rangeLi.appendChild(makeSpan("name", "est. Range"));
+    rangeLi.appendChild(makeSpan("value", estRange + (!this.config.imperial ? " Km" : " Mi")));
+
+    var updateLi = document.createElement("li");
+    updateLi.className = "mattribute";
+    updateLi.appendChild(makeSpan("icon zmdi zmdi-refresh zmdi-hc-fw", ""));
+    updateLi.appendChild(makeSpan("name", "Update"));
+    updateLi.appendChild(makeSpan("value", isUpdateAvailable ? "Yes": "No"));
+
     attrList.appendChild(odometerLi);
+    attrList.appendChild(rangeLi);
+    attrList.appendChild(updateLi);
     wrapper.appendChild(attrList);
   },
 
